@@ -1,8 +1,8 @@
 {
   "name": "no-try-catch",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Yet another promise wrapper to avoid try/catch hell. Typescript supported.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "prepublish": "tsc",
   "scripts": {

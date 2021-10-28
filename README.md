@@ -5,10 +5,9 @@
 # Example
 
 ```js
-import get from "axios";
 import wrapper from "no-try-catch";
 
-let result = await wrapper(get, ["https://google.com", {}]);
+let result = await wrapper(somePromise, [arg1, arg2, arg3]);
 
 if (result.error) return console.error(result.error);
 
