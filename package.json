@@ -1,0 +1,30 @@
+{
+  "name": "no-try-catch",
+  "version": "1.0.0",
+  "description": "Yet another promise wrapper to avoid try/catch hell. Typescript supported.",
+  "main": "index.js",
+  "types": "dist/index.d.ts",
+  "prepublish": "tsc",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grangus/no-try-catch.git"
+  },
+  "keywords": [
+    "promise",
+    "wrapper",
+    "promise",
+    "trycatch"
+  ],
+  "author": "grangus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grangus/no-try-catch/issues"
+  },
+  "homepage": "https://github.com/grangus/no-try-catch#readme",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
