@@ -15,10 +15,10 @@ const wrapper = async <F extends (...arg: any) => any>(
   params?: any[]
 ): Promise<
   | { error: Error; data: null }
-  | { error: null; data: Unpack<ReturnType<typeof func>> }
+  | { error: null; data: Unpack<ReturnType<F>> }
 > => {
   let called = params ? func(...params) : func();
-  let toCall: Promise<ReturnType<typeof func>> = called;
+  let toCall: Promise<ReturnType<F>> = called;
 
   try {
     let result: any = await toCall;
