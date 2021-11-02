@@ -1,6 +1,6 @@
 {
   "name": "no-try-catch",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Yet another promise wrapper to avoid try/catch hell. Typescript supported.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -5,6 +5,7 @@ type Unpack<T> = T extends Promise<infer U>
   : T extends (...args: any) => infer U
   ? U
   : T;
+
 /**
  * @param {Function} func The function to wrap.
  * @param {Array} [params] An array of parameters to pass to the function.
@@ -13,17 +14,18 @@ const wrapper = async <F extends (...arg: any) => any>(
   func: F,
   params?: any[]
 ): Promise<
-  { error: Error } | { error: null; data: ReturnType<typeof func> }
+  | { error: Error; data: null }
+  | { error: null; data: Unpack<ReturnType<typeof func>> }
 > => {
   let called = params ? func(...params) : func();
   let toCall: Promise<ReturnType<typeof func>> = called;
 
   try {
-    let result = await toCall;
+    let result: any = await toCall;
 
     return { error: null, data: result };
   } catch (error: any) {
-    return { error };
+    return { error, data: null };
   }
 };
 
