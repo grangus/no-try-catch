@@ -12,16 +12,18 @@ type Unpack<T> = T extends Promise<infer U>
 const wrapper = async <F extends (...arg: any) => any>(
   func: F,
   params?: any[]
-): Promise<{error: Error} | {error: null, result: ReturnType<typeof func>}> => {
+): Promise<
+  { error: Error } | { error: null; data: ReturnType<typeof func> }
+> => {
   let called = params ? func(...params) : func();
   let toCall: Promise<ReturnType<typeof func>> = called;
 
   try {
     let result = await toCall;
 
-    return {error: null, result};
+    return { error: null, data: result };
   } catch (error: any) {
-    return {error};
+    return { error };
   }
 };
 
